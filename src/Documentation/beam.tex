@@ -1,0 +1,140 @@
+\author
+{
+	Anand Dhoot 
+	\texttt{130070009\\ananddhoot@example.com}\\
+	\and
+	Maulik Shah 
+	\texttt{13D100004\\maulikshah@example.com}\\
+	\and
+	Anchit Gupta 
+	\texttt{13D100032\\anchitgupta@example.com}
+}
+\title{Physics Behind the Simulation: A CS251 Report by Group 21.}
+\begin{document}
+\maketitle
+
+
+\AtBeginSection[]
+{
+   \begin{frame}
+       \frametitle{Overview}
+       \tableofcontents[sections]
+   \end{frame}
+}
+
+\section{Introduction}
+\begin{frame}
+	\frametitle{Introduction}
+	The purpose of the report is to explain the physics behind the working of the Rube Goldberg machine. It carefully documents all the physical laws and axioms which are being followed in doing the simulation by using Box2D.
+\end{frame}
+
+\section{Body}
+\begin{frame}
+	\frametitle{Body}
+\begin{itemize}
+\item Pulleys
+\item Dominos
+\item Newton's Pendulum
+\end{itemize}
+\end{frame}
+
+
+\subsection{Pulleys}
+\begin{frame}
+  \frametitle{Pulleys}
+  \begin{center}
+  \includegraphics[width=1.25cm, height=1.5cm]{pulley_35786_md.jpg}
+  \end{center}
+  Pulley is a simple form of machine. They make jobs easier to do. The pulley in our project is used to transfer the horizontal energy of the ball into the vertical energy of the plank attached to the pulley. The force on the left side of the pulley is the force applied on the ball falling from the shelf due to gravity(newtons laws reference to newton's paper here) \\
+	\linebreak
+\(
+ J*R = I*\alpha \)
+	\linebreak
+	where 
+	\linebreak
+	J is Impulse on the domino from the previous domino
+	\linebreak
+	R is height of domino
+	\linebreak
+	I is moment of inertia of the domino about point of contact with ground
+	\linebreak
+\(
+	\alpha \)
+ is angular acceeleration of dominoes
+\end{frame}
+
+\subsection{Dominos}
+\begin{frame}
+  \frametitle{Dominos}
+  \begin{center}
+  \includegraphics[width=1.5cm, height=1.5cm]{dominos.jpeg}
+  \end{center}
+  \\
+  Dominos are a series of thin planks placed closed to each other. They give rise to a chain reaction when the first domino topples as each domino, on toppling, in turn topples the next domnio and so on. This a grreat exapmlpe of impulse transfer resulting in a chain reaction.
+\linebreak
+\(
+	\sum_{i=1}^{n} m_i*v_i = \kappa
+\)
+\linebreak
+ where
+\linebreak
+\(
+m_i 
+\)
+is the mass of the ith element
+\linebreak
+\(
+v_i 
+\)
+is the velocity of the ith element
+\linebreak
+\(
+\kappa 
+\)
+is a constant
+\linebreak
+\end{frame} 
+
+\subsection{Newton's Pendulum}
+\begin{frame}
+  \frametitle{Newton's Pendulum}
+  \begin{center}
+  \includegraphics[width=3cm, height=1.75cm]{newtonscradle.jpg}
+  \end{center}
+  \\
+   Newtons Pendulum named after Sir Isaac Newton, is a device that demonstrates conservation of momentum and energy via a series of swinging spheres. When one sphere on the end is lifted and released, it strikes the stationary spheres; a force is transmitted through the stationary spheres and pushes the last one upward.
+\linebreak
+\(
+p_i = p_f
+\)
+\linebreak
+where
+\linebreak
+\(
+p_i
+\)
+  is initial momentum
+\linebreak
+\(
+p_f
+\)
+  is final momentum
+\end{frame}
+
+\section{Conclusions}
+\begin{frame}
+	\frametitle{Conclusions}
+The report gives a brief description of three elements used in our Rube Goldberg machine and the physics behind each of them. Along with each physical entity are an image and a physical equation related to that entity.
+\end{frame}
+
+\section{References}
+\begin{frame}
+	\frametitle{References}
+	\bibliographystyle{plain}
+	\bibliography{ref}{}
+	\cite{wiki:000} \\ 
+	\cite{wiki:001} \\ 
+	\cite{wiki:002} 
+\end{frame}
+
+\end{document}

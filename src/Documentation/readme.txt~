@@ -1,0 +1,53 @@
+HONOUR CODE:
+We pledge on our honour that we have not given or received any unauthorized assistance in this assignment or any previous task.
+
+Group name : Vulcans
+Group members and their contributions:
+Anand Dhoot 130070009 - 100%
+Maulik Shah 13D100004 - 100%
+Anchit Gupta 13D100032 - 100%
+
+1a : 
+Copy patch files to the folder cs251_base_code. Execute follwing commands - 
+patch external/src/Box2D/Box2D/Common/b2Timer.h b2Timer_h.patch
+patch external/src/Box2D/Box2D/Common/b2Timer.cpp b2Timer_cpp.patch
+
+Difference between the patched versions and the originals we copied - 
+Output of diff commands - 
+
+For the file b2timer.h
+	Following lines were added at line number 22 - 
+		> 
+		> #if defined(__linux__) || defined (__APPLE__)
+		> #include <sys/time.h>
+		> #endif
+	Following lines were added at line number 46 - 
+		> unsigned long m_start_usec;
+		> timeval m_start;
+	The line number 46 were deleted -
+		< unsigned long m_start_usec;
+
+For the file b2timer.cpp
+	Following lines were added before line number 65 - 
+		> #include <sys/time.h>
+		> 
+	Line number 73 was deleted - 
+		<     m_start=t;
+	Line number 75 was changed from 
+		<     m_start_usec = t.tv_usec * 0.001f;
+		to
+		>     m_start_usec = t.tv_usec;
+	Lines 80 to 84 were changed from
+		<   timeval t, res;
+		<   gettimeofday(&t, 0);
+		<   timersub(&t, &m_start, &res);
+		<   return res.tv_sec*1000 + res.tv_usec * 0.001f;
+		<   //return 1000.0f * (t.tv_sec - m_start_sec) + 0.001f * (t.tv_usec - m_start_usec);
+		to
+		>     timeval t;
+		>     gettimeofday(&t, 0);
+		>     return 1000.0f * (t.tv_sec - m_start_sec) + 0.001f * (t.tv_usec - m_start_usec);
+
+
+1g:
+2 files have changed
